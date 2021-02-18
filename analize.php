@@ -341,7 +341,6 @@ class Communication{
         }elseif($result === 0 && isset($on_idle)){
             $on_idle($this);
         }elseif(count($read)>0){
-            //read the first X bytes, decode them, check the length, read the remainder, decode the remainder
             foreach($read as $incomming){
                 $port = array_search($incomming, $this->sockets,true);
                 $this->rc4_reset();
