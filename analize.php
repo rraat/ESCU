@@ -95,66 +95,73 @@ class Communication{
 
 
     private static $tlvInfo = [
-            0x0001 => ["productModel","string"],
-            0x0002 => ["deviceDescription","string"],
-            0x0003 => ["macAddress" ,"mac"],
-            0x0004 => ["switchIpAddress","ip"],
-            0x0005 => ["mask" ,"ip"],
-            0x0006 => ["gateway","ip"],
-            0x0007 => ["firmwareVer","string"],
-            0x0008 => ["hardwareVer","string"],
-            0x000A => ["portcount","C1"],
-            0x0009 => ["dhcpEnabled" ,"bool"],
-            0x000C => ["ledStatus","bool"],
-            0x000D => ["autoSave","bool"],
-            0x000E => ["isFactory","bool"],
-            0x000F => ["switchFlashType","uint16"],
-            0x0010 => ["portOrder","C1"],
-            0x0200 => ["username","string"],
-            0x0201 => ["new_username","string"],
-            0x0202 => ["password","string"],
-            0x0203 => ["new_password","string"],
-            0x0300 => ["read_config file","hex"],
-            0x0301 => ["write_config file","hex"],
-            0x0305 => ["reboot","bool"],
-            0x0500 => ["system config is reset","*hex"],
-            0x0600 => ["upgrade_firmware","*hex"],
-            0x0804 => ["mac","*hex"],
-            0x0805 => ["firmwareVer","*hex"],
-            0x0806 => ["hardwareVer","*hex"],
-            0x0807 => ["dhcpState","*hex"],
-            0x0808 => ["ip","*ip"],
-            0x0900 => ["authenticate","*nop"],
-            0x0901 => ["new_session","nop"],
-            0x1000 => ["port_config","C1portnumber/C1enabled/C1LagNo/C1configuredSpeed/C1actualSpeed/C1configuredFlowControl/C1actualFlowControl"],
-            0x1100 => ["igmpSnooping","bool"],
-            0x1101 => ["igmpPaths","igmppath"],
-            0x1102 => ["reportMessageSuppression","bool"],
-            0x1200 => ["lag2Members","groupmembers"],
 
-            0x2000 => ["mtuStatus","C1enabled/C1uplinkport"],
-            0x2100 => ["portBasedVlan","bool"],
-            0x2101 => ["portBasedVlanMembers","groupmembers"],
-            0x2102 => ["portBasedVlanPortcount","uint8"],
+             0x0001 => ["productModel","string"],
+             0x0002 => ["deviceDescription","string"],
+             0x0003 => ["macAddress" ,"mac"],
+             0x0004 => ["switchIpAddress","ip"],
+             0x0005 => ["mask" ,"ip"],
+             0x0006 => ["gateway","ip"],
+             0x0007 => ["firmwareVer","string"],
+             0x0008 => ["hardwareVer","string"],
+             0x0009 => ["dhcpEnabled" ,"bool"],
+             0x000A => ["portcount","C1"],
+             0x000C => ["ledStatus","bool"],
+             0x000D => ["autoSave","bool"],
+             0x000E => ["isFactory","bool"],
+             0x000F => ["switchFlashType","uint16"],
 
-            0x2200 => ["802.1q","bool"],
-            0x2201 => ["802.1qvlans","vlanconfig"],
-            0x2202 => ["PortDefaultId","C1Port/n1vlanid"],
-            0x2203 => ["maxVlanCount","uint8"],
+             0x0200 => ["username","string"],
+             0x0201 => ["new_username","string"],
+             0x0202 => ["password","string"],
+             0x0203 => ["new_password","string"],
 
-            0x3000 => ["qosMode","qosmode"],
-            0x3001 => ["qosPortPriority","*C1Port/C1Priority"],
+             0x0300 => ["read_config file","hex"],
+             0x0301 => ["write_config file","hex"],
+             0x0305 => ["reboot","bool"],
 
-            0x3100 => ["PortIngressBandwithSettings","C1Port/C1enabled/N1speed"], //n1Limit/
-            0x3101 => ["PortEgressdBandwithSettings","C1Port/C1enabled/N1speed"], //n1Limit/
-            0x3200 => ["PortStormControlSettings","C1Port/C1enabled/C1UlFrame/C1Multicast/C1Broadcast/N1speed"],
-            0x4000 => ["PortStatistics","C1portno/C1enabled/C1speed/N1txGoodPkt/N1txBadPkt/N1rxGoodPkt/N1rxBadPkt"],
-            0x4100 => ["PortMirror","mirrorinfo"],
-            0x4200 => ["CableTest","C1portnumber1/C1cableStatus/N1faultDistance"],
-            0x4300 => ["LoopPrevention","bool"],
+             0x0500 => ["factoryReset","*hex"],
 
-            0xffff=>["EOF","nop"]
+             0x0600 => ["upgradeFirmwareMode","*hex"],
 
+             0x0901 => ["new_session","nop"],
+
+             0x1000 => ["port_config","C1portnumber/C1enabled/C1LagNo/C1configuredSpeed/C1actualSpeed/C1configuredFlowControl/C1actualFlowControl"],
+
+             0x1100 => ["igmpSnooping","bool"],
+             0x1101 => ["igmpPaths","igmppath"],
+             0x1102 => ["reportMessageSuppression","bool"],
+
+             0x1200 => ["lag2Members","groupmembers"],
+
+             0x2000 => ["mtuStatus","C1enabled/C1uplinkport"],
+
+             0x2100 => ["portBasedVlan","bool"],
+             0x2101 => ["portBasedVlanMembers","groupmembers"],
+             0x2102 => ["portBasedVlanPortcount","uint8"],
+
+             0x2200 => ["802.1q","bool"],
+             0x2201 => ["802.1qvlans","vlanconfig"],
+             0x2202 => ["PortDefaultId","C1Port/n1vlanid"],
+             0x2203 => ["maxVlanCount","uint8"],
+
+             0x3000 => ["qosMode","qosmode"],
+             0x3001 => ["qosPortPriority","*C1Port/C1Priority"],
+
+             0x3100 => ["PortIngressBandwithSettings","C1Port/C1enabled/N1speed"], //n1Limit/
+             0x3101 => ["PortEgressdBandwithSettings","C1Port/C1enabled/N1speed"], //n1Limit/
+
+             0x3200 => ["PortStormControlSettings","C1Port/C1enabled/C1UlFrame/C1Multicast/C1Broadcast/N1speed"],
+
+             0x4000 => ["PortStatistics","C1portno/C1enabled/C1speed/N1txGoodPkt/N1txBadPkt/N1rxGoodPkt/N1rxBadPkt"],
+
+             0x4100 => ["PortMirror","mirrorinfo"],
+
+             0x4200 => ["CableTest","C1portnumber1/C1cableStatus/N1faultDistance"],
+
+             0x4300 => ["LoopPrevention","bool"],
+
+             0xffff=>["EOF","nop"]
     ];
 
 
@@ -190,15 +197,21 @@ class Communication{
         return $flags;
     }
 
+    private function escape($string,$force=false){
+        return implode("",array_map(function($char)use($force){
+            return ($force || $char<" " || $char> "~") ? "\\x".bin2hex($char) : $char;
+        },str_split($string)));
+    }
+
     private function unpack_tlv($type,$value){
         if(!isset(self::$tlvInfo[$type])){
-            echo "\n\x1b[1;31m****** UNKNOWN ********\n";
-            return  ["0x".dechex($type), strlen($value)." ".implode("",unpack("H*",$value))];
+            echo "\n\x1b[1;31m";
+            return  ["0x".dechex($type), strlen($value)." ".implode("",unpack("H*",$value))." {$this->escape($value)}"];
 
         }
         list($name,$basetype) = self::$tlvInfo[$type];
         if($basetype[0] == "*"){
-            echo "\n\x1b[1;31m";
+            echo "\x1b[1;31m";
             $basetype = substr($basetype, 1);
         }
 
