@@ -122,7 +122,7 @@ class Communication{
 
              0x0500 => ["factoryReset","*hex"],
 
-             0x0600 => ["upgradeFirmwareMode","*hex"],
+             0x0600 => ["upgradeFirmwareMode","nop"],
 
              0x0901 => ["new_session","nop"],
 
